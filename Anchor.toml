@@ -1,0 +1,16 @@
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "localnet"
+wallet = "~/.config/solana/id.json"
+
+[[test.genesis]]
+address = "ymejMoHH1bsxXCjKjjsVoCZGkq6bpmcxgTHYfLKRoHq"
+program = "target/deploy/ywpl_token_metadata.so"
+
+
+[workspace]
+members = [
+  "token-metadata/program",
+]
