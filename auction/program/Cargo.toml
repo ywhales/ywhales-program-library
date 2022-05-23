@@ -1,8 +1,8 @@
 [package]
 name = "ywpl-auction"
 version = "0.0.2"
-description = "YWhales Auction Program"
-authors = ["Ywhales"]
+description = "yWhales Auction Program"
+authors = ["yWhales <dev@ywhales.com>"]
 repository = "https://github.com/ywhales/ywhales-program-library"
 license = "AGPL-3.0"
 edition = "2018"

@@ -1,8 +1,8 @@
 [package]
 name = "ywpl-plex"
 version = "0.0.3"
-description = "Ywhales"
-authors = ["YWhales"]
+description = "yWhales"
+authors = ["yWhales <dev@ywhales.com>"]
 repository = "https://github.com/ywhales/ywhales-program-library"
 license = "AGPL-3.0"
 edition = "2018"

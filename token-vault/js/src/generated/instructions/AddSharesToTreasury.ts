@@ -110,7 +110,7 @@ export function createAddSharesToTreasuryInstruction(
   ];
 
   const ix = new web3.TransactionInstruction({
-    programId: new web3.PublicKey('vau1zxA2LbssAUEF7Gpw91zMM1LvXrvpzJtmZ58rPsn'),
+    programId: new web3.PublicKey('yvaUJxtAiuphyL7JiVMMdY7uTJe1ekb4LmHXtBv5SFd'),
     keys,
     data,
   });
