@@ -14,7 +14,7 @@ use crate::{
 };
 use borsh::BorshSerialize;
 use ywpl_auction::processor::AuctionData;
-use ywpl_token_metadata::state::{MasterEditionV1, Metadata};
+use mpl_token_metadata::state::{MasterEditionV1, Metadata};
 use ywpl_token_vault::state::SafetyDepositBox;
 use solana_program::{
     account_info::{next_account_info, AccountInfo},
@@ -326,7 +326,7 @@ pub fn process_empty_payment_account(
     // assert that the metadata sent up is the metadata in the safety deposit
     if metadata.mint != safety_deposit.token_mint {
         if master_edition_info.data.borrow()[0]
-            == ywpl_token_metadata::state::Key::MasterEditionV1 as u8
+            == mpl_token_metadata::state::Key::MasterEditionV1 as u8
         {
             // Could be a limited edition, in which case printing tokens or auth tokens were offered, not the original.
             let master_edition: MasterEditionV1 =

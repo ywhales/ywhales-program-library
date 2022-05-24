@@ -17,7 +17,7 @@ function localDeployPath(programName) {
   return path.join(localDeployDir, `${programName}.so`);
 }
 const programs = {
-  metadata: { programId: programIds.metadata, deployPath: localDeployPath('ywpl_token_metadata') },
+  metadata: { programId: programIds.metadata, deployPath: localDeployPath('mpl_token_metadata') },
   vault: { programId: programIds.vault, deployPath: localDeployPath('mpl_token_vault') },
   auction: { programId: programIds.auction, deployPath: localDeployPath('ywpl_auction') },
   metaplex: { programId: programIds.metaplex, deployPath: localDeployPath('mpl_metaplex') },

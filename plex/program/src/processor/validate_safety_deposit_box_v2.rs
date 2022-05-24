@@ -13,7 +13,7 @@ use crate::{
     },
 };
 use borsh::BorshSerialize;
-use ywpl_token_metadata::{
+use mpl_token_metadata::{
     state::{MasterEditionV1, MasterEditionV2, Metadata},
     utils::assert_update_authority_is_correct,
 };
@@ -226,10 +226,10 @@ pub fn assert_supply_logic_check(args: SupplyLogicCheckArgs) -> ProgramResult {
     let safety_deposit_token_store: Account = assert_initialized(safety_deposit_token_store_info)?;
 
     let edition_seeds = &[
-        ywpl_token_metadata::state::PREFIX.as_bytes(),
+        mpl_token_metadata::state::PREFIX.as_bytes(),
         store.token_metadata_program.as_ref(),
         &metadata.mint.as_ref(),
-        ywpl_token_metadata::state::EDITION.as_bytes(),
+        mpl_token_metadata::state::EDITION.as_bytes(),
     ];
 
     let (edition_key, _) =

@@ -5,7 +5,7 @@ use {
     arrayref::{array_mut_ref, array_ref, mut_array_refs},
     borsh::{BorshDeserialize, BorshSerialize},
     ywpl_auction::processor::AuctionData,
-    ywpl_token_metadata::state::Metadata,
+    mpl_token_metadata::state::Metadata,
     ywpl_token_vault::state::SafetyDepositBox,
     solana_program::{
         account_info::AccountInfo, entrypoint::ProgramResult, program_error::ProgramError,

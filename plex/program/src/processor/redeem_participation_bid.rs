@@ -13,7 +13,7 @@ use {
         },
     },
     ywpl_auction::processor::{AuctionData, AuctionDataExtended, BidderMetadata},
-    ywpl_token_metadata::utils::get_supply_off_master_edition,
+    mpl_token_metadata::utils::get_supply_off_master_edition,
     solana_program::{
         account_info::{next_account_info, AccountInfo},
         entrypoint::ProgramResult,

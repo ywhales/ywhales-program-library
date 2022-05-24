@@ -18,8 +18,8 @@ mod sign_metadata {
     
     use solana_sdk::transaction::Transaction;
 
-    use ywpl_token_metadata::instruction::{remove_creator_verification, sign_metadata};
-    use ywpl_token_metadata::state::{Creator};
+    use mpl_token_metadata::instruction::{remove_creator_verification, sign_metadata};
+    use mpl_token_metadata::state::{Creator};
 
     use super::*;
 
@@ -56,7 +56,7 @@ mod sign_metadata {
             .await
             .unwrap();
         let sign_ix = sign_metadata(
-            ywpl_token_metadata::id(),
+            mpl_token_metadata::id(),
             test_meta.pubkey,
             creator.pubkey()
         );
@@ -72,7 +72,7 @@ mod sign_metadata {
         assert_eq!(after_sign.data.creators.unwrap()[1].verified, true);
 
         let remove_ix = remove_creator_verification(
-            ywpl_token_metadata::id(),
+            mpl_token_metadata::id(),
             test_meta.pubkey,
             creator.pubkey()
         );

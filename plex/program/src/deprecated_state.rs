@@ -10,7 +10,7 @@ use crate::{
 use arrayref::array_ref;
 use borsh::{BorshDeserialize, BorshSerialize};
 use ywpl_auction::processor::AuctionData;
-use ywpl_token_metadata::state::Metadata;
+use mpl_token_metadata::state::Metadata;
 use ywpl_token_vault::state::SafetyDepositBox;
 use solana_program::{
     account_info::AccountInfo, entrypoint::ProgramResult, msg, program_error::ProgramError,

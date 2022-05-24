@@ -10,7 +10,7 @@ use {
     },
     arrayref::array_ref,
     ywpl_auction::processor::AuctionData,
-    ywpl_token_metadata::{
+    mpl_token_metadata::{
         deprecated_instruction::deprecated_set_reservation_list, state::Reservation,
     },
     solana_program::{

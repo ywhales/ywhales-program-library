@@ -7,7 +7,7 @@ use crate::{
         CommonRedeemReturn,
     },
 };
-use ywpl_token_metadata::state::Metadata;
+use mpl_token_metadata::state::Metadata;
 use solana_program::{
     account_info::{next_account_info, AccountInfo},
     entrypoint::ProgramResult,

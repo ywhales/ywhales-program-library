@@ -1,6 +1,6 @@
 {
   "version": "1.2.5",
-  "name": "ywpl_token_metadata",
+  "name": "mpl_token_metadata",
   "instructions": [
     {
       "name": "CreateMetadataAccount",

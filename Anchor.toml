@@ -7,7 +7,7 @@ wallet = "~/.config/solana/id.json"
 
 [[test.genesis]]
 address = "ymejMoHH1bsxXCjKjjsVoCZGkq6bpmcxgTHYfLKRoHq"
-program = "target/deploy/ywpl_token_metadata.so"
+program = "target/deploy/mpl_token_metadata.so"
 
 
 [workspace]

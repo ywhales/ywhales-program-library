@@ -1286,6 +1286,39 @@ dependencies = [
 ]
 
 [[package]]
+name = "mpl-token-metadata"
+version = "1.2.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7d71fddb77eb409ffee7e4662bc12f0535b5329729e18db6c536c9f8e8a37d39"
+dependencies = [
+ "arrayref",
+ "borsh",
+ "mpl-token-vault",
+ "num-derive",
+ "num-traits",
+ "shank",
+ "solana-program",
+ "spl-associated-token-account",
+ "spl-token",
+ "thiserror",
+]
+
+[[package]]
+name = "mpl-token-vault"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "36789b99869391fcc1041509729db1183d2abb0ffe62b165fadd9fffba391fde"
+dependencies = [
+ "borsh",
+ "num-derive",
+ "num-traits",
+ "shank",
+ "solana-program",
+ "spl-token",
+ "thiserror",
+]
+
+[[package]]
 name = "ntapi"
 version = "0.3.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3192,11 +3225,27 @@ dependencies = [
 ]
 
 [[package]]
+name = "ywpl-auction"
+version = "0.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f04756e27c88663e1a3d023d89e3e9c13cc7bc818c5002ca2b2310e340969685"
+dependencies = [
+ "arrayref",
+ "borsh",
+ "num-derive",
+ "num-traits",
+ "solana-program",
+ "spl-token",
+ "thiserror",
+]
+
+[[package]]
 name = "ywpl-plex"
 version = "0.0.3"
 dependencies = [
  "arrayref",
  "borsh",
+ "mpl-token-metadata",
  "num-derive",
  "num-traits",
  "solana-program",
@@ -3205,25 +3254,8 @@ dependencies = [
  "spl-associated-token-account",
  "spl-token",
  "thiserror",
- "ywpl-auction",
- "ywpl-token-metadata",
+ "ywpl-auction 0.0.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "ywpl-token-vault 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
-name = "ywpl-token-metadata"
-version = "1.2.7"
-dependencies = [
- "arrayref",
- "borsh",
- "num-derive",
- "num-traits",
- "shank",
- "solana-program",
- "spl-associated-token-account",
- "spl-token",
- "thiserror",
- "ywpl-token-vault 0.1.1",
 ]
 
 [[package]]

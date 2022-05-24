@@ -86,7 +86,7 @@ pub fn process_set_auction_cache<'a>(
 
     let (metadata, _) = Pubkey::find_program_address(
         &[
-            ywpl_token_metadata::state::PREFIX.as_bytes(),
+            mpl_token_metadata::state::PREFIX.as_bytes(),
             store.token_metadata_program.as_ref(),
             deposit_box.token_mint.as_ref(),
         ],

@@ -3,7 +3,7 @@ use crate::{
     state::{SafetyDepositConfig, TupleNumericType, PREFIX},
 };
 use borsh::{BorshDeserialize, BorshSerialize};
-use ywpl_token_metadata::state::EDITION_MARKER_BIT_SIZE;
+use mpl_token_metadata::state::EDITION_MARKER_BIT_SIZE;
 use solana_program::{
     instruction::{AccountMeta, Instruction},
     pubkey::Pubkey,
@@ -836,7 +836,7 @@ pub fn create_deprecated_validate_safety_deposit_box_v1_instruction(
         AccountMeta::new_readonly(auction_manager_authority, true),
         AccountMeta::new_readonly(metadata_authority, true),
         AccountMeta::new_readonly(payer, true),
-        AccountMeta::new_readonly(ywpl_token_metadata::id(), false),
+        AccountMeta::new_readonly(mpl_token_metadata::id(), false),
         AccountMeta::new_readonly(solana_program::system_program::id(), false),
         AccountMeta::new_readonly(sysvar::rent::id(), false),
     ];
@@ -901,7 +901,7 @@ pub fn create_validate_safety_deposit_box_v2_instruction(
         AccountMeta::new_readonly(auction_manager_authority, true),
         AccountMeta::new_readonly(metadata_authority, true),
         AccountMeta::new_readonly(payer, true),
-        AccountMeta::new_readonly(ywpl_token_metadata::id(), false),
+        AccountMeta::new_readonly(mpl_token_metadata::id(), false),
         AccountMeta::new_readonly(solana_program::system_program::id(), false),
         AccountMeta::new_readonly(sysvar::rent::id(), false),
     ];
@@ -950,7 +950,7 @@ pub fn create_redeem_bid_instruction(
             AccountMeta::new_readonly(payer, true),
             AccountMeta::new_readonly(spl_token::id(), false),
             AccountMeta::new_readonly(ywpl_token_vault::id(), false),
-            AccountMeta::new_readonly(ywpl_token_metadata::id(), false),
+            AccountMeta::new_readonly(mpl_token_metadata::id(), false),
             AccountMeta::new_readonly(store, false),
             AccountMeta::new_readonly(solana_program::system_program::id(), false),
             AccountMeta::new_readonly(sysvar::rent::id(), false),
@@ -998,7 +998,7 @@ pub fn create_redeem_full_rights_transfer_bid_instruction(
             AccountMeta::new_readonly(payer, true),
             AccountMeta::new_readonly(spl_token::id(), false),
             AccountMeta::new_readonly(ywpl_token_vault::id(), false),
-            AccountMeta::new_readonly(ywpl_token_metadata::id(), false),
+            AccountMeta::new_readonly(mpl_token_metadata::id(), false),
             AccountMeta::new_readonly(store, false),
             AccountMeta::new_readonly(solana_program::system_program::id(), false),
             AccountMeta::new_readonly(sysvar::rent::id(), false),
@@ -1051,7 +1051,7 @@ pub fn create_deprecated_redeem_participation_bid_instruction(
             AccountMeta::new(payer, true),
             AccountMeta::new_readonly(spl_token::id(), false),
             AccountMeta::new_readonly(ywpl_token_vault::id(), false),
-            AccountMeta::new_readonly(ywpl_token_metadata::id(), false),
+            AccountMeta::new_readonly(mpl_token_metadata::id(), false),
             AccountMeta::new_readonly(store, false),
             AccountMeta::new_readonly(solana_program::system_program::id(), false),
             AccountMeta::new_readonly(sysvar::rent::id(), false),
@@ -1104,7 +1104,7 @@ pub fn create_set_store_instruction(
         AccountMeta::new_readonly(payer, true),
         AccountMeta::new_readonly(spl_token::id(), false),
         AccountMeta::new_readonly(ywpl_token_vault::id(), false),
-        AccountMeta::new_readonly(ywpl_token_metadata::id(), false),
+        AccountMeta::new_readonly(mpl_token_metadata::id(), false),
         AccountMeta::new_readonly(ywpl_auction::id(), false),
         AccountMeta::new_readonly(solana_program::system_program::id(), false),
         AccountMeta::new_readonly(sysvar::rent::id(), false),
@@ -1135,7 +1135,7 @@ pub fn create_set_store_v2_instruction(
         AccountMeta::new_readonly(payer, true),
         AccountMeta::new_readonly(spl_token::id(), false),
         AccountMeta::new_readonly(ywpl_token_vault::id(), false),
-        AccountMeta::new_readonly(ywpl_token_metadata::id(), false),
+        AccountMeta::new_readonly(mpl_token_metadata::id(), false),
         AccountMeta::new_readonly(ywpl_auction::id(), false),
         AccountMeta::new_readonly(solana_program::system_program::id(), false),
         AccountMeta::new_readonly(sysvar::rent::id(), false),
@@ -1183,7 +1183,7 @@ pub fn create_deprecated_populate_participation_printing_account_instruction(
         AccountMeta::new_readonly(auction_manager, false),
         AccountMeta::new_readonly(spl_token::id(), false),
         AccountMeta::new_readonly(ywpl_token_vault::id(), false),
-        AccountMeta::new_readonly(ywpl_token_metadata::id(), false),
+        AccountMeta::new_readonly(mpl_token_metadata::id(), false),
         AccountMeta::new_readonly(store, false),
         AccountMeta::new_readonly(master_edition, false),
         AccountMeta::new_readonly(transfer_authority, false),
@@ -1274,42 +1274,42 @@ pub fn create_redeem_printing_v2_bid_instruction(
 
     let (edition_mark_pda, _) = Pubkey::find_program_address(
         &[
-            ywpl_token_metadata::state::PREFIX.as_bytes(),
-            ywpl_token_metadata::id().as_ref(),
+            mpl_token_metadata::state::PREFIX.as_bytes(),
+            mpl_token_metadata::id().as_ref(),
             original_mint.as_ref(),
-            ywpl_token_metadata::state::EDITION.as_bytes(),
+            mpl_token_metadata::state::EDITION.as_bytes(),
             edition_number.to_string().as_bytes(),
         ],
-        &ywpl_token_metadata::id(),
+        &mpl_token_metadata::id(),
     );
 
     let (metadata, _) = Pubkey::find_program_address(
         &[
-            ywpl_token_metadata::state::PREFIX.as_bytes(),
-            ywpl_token_metadata::id().as_ref(),
+            mpl_token_metadata::state::PREFIX.as_bytes(),
+            mpl_token_metadata::id().as_ref(),
             original_mint.as_ref(),
         ],
-        &ywpl_token_metadata::id(),
+        &mpl_token_metadata::id(),
     );
 
     let (master_edition, _) = Pubkey::find_program_address(
         &[
-            ywpl_token_metadata::state::PREFIX.as_bytes(),
-            ywpl_token_metadata::id().as_ref(),
+            mpl_token_metadata::state::PREFIX.as_bytes(),
+            mpl_token_metadata::id().as_ref(),
             original_mint.as_ref(),
-            ywpl_token_metadata::state::EDITION.as_bytes(),
+            mpl_token_metadata::state::EDITION.as_bytes(),
         ],
-        &ywpl_token_metadata::id(),
+        &mpl_token_metadata::id(),
     );
 
     let (new_edition, _) = Pubkey::find_program_address(
         &[
-            ywpl_token_metadata::state::PREFIX.as_bytes(),
-            ywpl_token_metadata::id().as_ref(),
+            mpl_token_metadata::state::PREFIX.as_bytes(),
+            mpl_token_metadata::id().as_ref(),
             new_mint.as_ref(),
-            ywpl_token_metadata::state::EDITION.as_bytes(),
+            mpl_token_metadata::state::EDITION.as_bytes(),
         ],
-        &ywpl_token_metadata::id(),
+        &mpl_token_metadata::id(),
     );
 
     Instruction {
@@ -1328,7 +1328,7 @@ pub fn create_redeem_printing_v2_bid_instruction(
             AccountMeta::new(payer, true),
             AccountMeta::new_readonly(spl_token::id(), false),
             AccountMeta::new_readonly(ywpl_token_vault::id(), false),
-            AccountMeta::new_readonly(ywpl_token_metadata::id(), false),
+            AccountMeta::new_readonly(mpl_token_metadata::id(), false),
             AccountMeta::new_readonly(store, false),
             AccountMeta::new_readonly(solana_program::system_program::id(), false),
             AccountMeta::new_readonly(sysvar::rent::id(), false),
@@ -1470,42 +1470,42 @@ pub fn create_redeem_participation_bid_v3_instruction(
 
     let (edition_mark_pda, _) = Pubkey::find_program_address(
         &[
-            ywpl_token_metadata::state::PREFIX.as_bytes(),
-            ywpl_token_metadata::id().as_ref(),
+            mpl_token_metadata::state::PREFIX.as_bytes(),
+            mpl_token_metadata::id().as_ref(),
             original_mint.as_ref(),
-            ywpl_token_metadata::state::EDITION.as_bytes(),
+            mpl_token_metadata::state::EDITION.as_bytes(),
             edition_number.to_string().as_bytes(),
         ],
-        &ywpl_token_metadata::id(),
+        &mpl_token_metadata::id(),
     );
 
     let (metadata, _) = Pubkey::find_program_address(
         &[
-            ywpl_token_metadata::state::PREFIX.as_bytes(),
-            ywpl_token_metadata::id().as_ref(),
+            mpl_token_metadata::state::PREFIX.as_bytes(),
+            mpl_token_metadata::id().as_ref(),
             original_mint.as_ref(),
         ],
-        &ywpl_token_metadata::id(),
+        &mpl_token_metadata::id(),
     );
 
     let (master_edition, _) = Pubkey::find_program_address(
         &[
-            ywpl_token_metadata::state::PREFIX.as_bytes(),
-            ywpl_token_metadata::id().as_ref(),
+            mpl_token_metadata::state::PREFIX.as_bytes(),
+            mpl_token_metadata::id().as_ref(),
             original_mint.as_ref(),
-            ywpl_token_metadata::state::EDITION.as_bytes(),
+            mpl_token_metadata::state::EDITION.as_bytes(),
         ],
-        &ywpl_token_metadata::id(),
+        &mpl_token_metadata::id(),
     );
 
     let (new_edition, _) = Pubkey::find_program_address(
         &[
-            ywpl_token_metadata::state::PREFIX.as_bytes(),
-            ywpl_token_metadata::id().as_ref(),
+            mpl_token_metadata::state::PREFIX.as_bytes(),
+            mpl_token_metadata::id().as_ref(),
             new_mint.as_ref(),
-            ywpl_token_metadata::state::EDITION.as_bytes(),
+            mpl_token_metadata::state::EDITION.as_bytes(),
         ],
-        &ywpl_token_metadata::id(),
+        &mpl_token_metadata::id(),
     );
 
     let (extended, _) = Pubkey::find_program_address(
@@ -1534,7 +1534,7 @@ pub fn create_redeem_participation_bid_v3_instruction(
             AccountMeta::new(payer, true),
             AccountMeta::new_readonly(spl_token::id(), false),
             AccountMeta::new_readonly(ywpl_token_vault::id(), false),
-            AccountMeta::new_readonly(ywpl_token_metadata::id(), false),
+            AccountMeta::new_readonly(mpl_token_metadata::id(), false),
             AccountMeta::new_readonly(store, false),
             AccountMeta::new_readonly(solana_program::system_program::id(), false),
             AccountMeta::new_readonly(sysvar::rent::id(), false),

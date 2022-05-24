@@ -1,5 +1,5 @@
 use crate::*;
-use ywpl_token_metadata::{
+use mpl_token_metadata::{
     id, instruction,
     state::{Collection, Creator, Data, DataV2, Uses, PREFIX},
 };
@@ -36,7 +36,7 @@ impl Metadata {
     pub async fn get_data(
         &self,
         context: &mut ProgramTestContext,
-    ) -> ywpl_token_metadata::state::Metadata {
+    ) -> mpl_token_metadata::state::Metadata {
         let account = get_account(context, &self.pubkey).await;
         try_from_slice_unchecked(&account.data).unwrap()
     }

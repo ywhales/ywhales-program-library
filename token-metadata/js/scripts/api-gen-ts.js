@@ -5,7 +5,7 @@ const path = require('path');
 const programDir = path.join(__dirname, '..', '..', 'program');
 const generatedIdlDir = path.join(__dirname, '..', 'idl');
 const generatedSDKDir = path.join(__dirname, '..', 'src', 'generated');
-const PROGRAM_NAME = 'ywpl_token_metadata';
+const PROGRAM_NAME = 'mpl_token_metadata';
 const { Solita } = require('@metaplex-foundation/solita');
 const { spawn } = require('child_process');
 

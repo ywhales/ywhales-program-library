@@ -3,8 +3,8 @@ mod utils;
 
 
 
-use ywpl_token_metadata::state::{UseMethod, Uses};
-use ywpl_token_metadata::{
+use mpl_token_metadata::state::{UseMethod, Uses};
+use mpl_token_metadata::{
     state::{MAX_NAME_LENGTH, MAX_SYMBOL_LENGTH, MAX_URI_LENGTH},
     utils::puffed_out_string,
 };
@@ -15,12 +15,12 @@ use solana_sdk::{
 };
 use utils::*;
 use borsh::{BorshSerialize};
-use ywpl_token_metadata::state::{UseAuthorityRecord};
+use mpl_token_metadata::state::{UseAuthorityRecord};
 use solana_program::borsh::try_from_slice_unchecked;
 use solana_sdk::account::{Account, AccountSharedData};
 use solana_sdk::transaction::Transaction;
-use ywpl_token_metadata::pda::{find_program_as_burner_account, find_use_authority_account};
-use ywpl_token_metadata::state::Key as MetadataKey;
+use mpl_token_metadata::pda::{find_program_as_burner_account, find_use_authority_account};
+use mpl_token_metadata::state::Key as MetadataKey;
 use solana_sdk::account::{ReadableAccount, WritableAccount};
 mod bump_seed_migration {
     
@@ -69,7 +69,7 @@ mod bump_seed_migration {
         let mut account = Account {
             lamports: 1113600,
             data: vec![],
-            owner: ywpl_token_metadata::id(),
+            owner: mpl_token_metadata::id(),
             executable: false,
             rent_epoch: 1
         };
@@ -80,8 +80,8 @@ mod bump_seed_migration {
         context.set_account(&record, shared_data);
         airdrop(&mut context, &use_authority_account.pubkey(), 1113600).await.unwrap();
         let (burner, _) = find_program_as_burner_account();
-        let utilize_with_use_authority = ywpl_token_metadata::instruction::utilize(
-            ywpl_token_metadata::id(),
+        let utilize_with_use_authority = mpl_token_metadata::instruction::utilize(
+            mpl_token_metadata::id(),
             test_metadata.pubkey.clone(),
             test_metadata.token.pubkey(),
             test_metadata.mint.pubkey(),

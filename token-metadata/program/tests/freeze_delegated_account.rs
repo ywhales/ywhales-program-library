@@ -3,7 +3,7 @@ mod utils;
 
 
 
-use ywpl_token_metadata::error::MetadataError;
+use mpl_token_metadata::error::MetadataError;
 
 use num_traits::FromPrimitive;
 use solana_program_test::*;
@@ -67,8 +67,8 @@ mod freeze_delegated {
 
         // delegate freezes token
         let freeze_tx = Transaction::new_signed_with_payer(
-            &[ywpl_token_metadata::instruction::freeze_delegated_account(
-                ywpl_token_metadata::id(),
+            &[mpl_token_metadata::instruction::freeze_delegated_account(
+                mpl_token_metadata::id(),
                 delegate.pubkey(),
                 test_metadata.token.pubkey(),
                 test_master_edition.pubkey,
@@ -132,8 +132,8 @@ mod freeze_delegated {
         spl_token::instruction::approve(&spl_token::id(), &test_metadata.token.pubkey(), &delegate.pubkey(), &context.payer.pubkey(), &[], 1).unwrap();
 
         // delegate freezes token
-        let freeze_ix = ywpl_token_metadata::instruction::freeze_delegated_account(
-            ywpl_token_metadata::id(),
+        let freeze_ix = mpl_token_metadata::instruction::freeze_delegated_account(
+            mpl_token_metadata::id(),
             delegate.pubkey(),
             test_metadata.token.pubkey(),
             test_metadata.pubkey,
@@ -188,8 +188,8 @@ mod freeze_delegated {
             .unwrap();
 
         // attempt to freeze delegated account
-        let freeze_ix = ywpl_token_metadata::instruction::freeze_delegated_account(
-            ywpl_token_metadata::id(),
+        let freeze_ix = mpl_token_metadata::instruction::freeze_delegated_account(
+            mpl_token_metadata::id(),
             context.payer.pubkey(),
             test_metadata.token.pubkey(),
             test_master_edition.pubkey,
@@ -249,8 +249,8 @@ mod freeze_delegated {
         spl_token::instruction::approve(&spl_token::id(), &test_metadata.token.pubkey(), &delegate.pubkey(), &context.payer.pubkey(), &[], 1).unwrap();
 
         // delegate freezes token
-        let freeze_ix = ywpl_token_metadata::instruction::freeze_delegated_account(
-            ywpl_token_metadata::id(),
+        let freeze_ix = mpl_token_metadata::instruction::freeze_delegated_account(
+            mpl_token_metadata::id(),
             delegate.pubkey(),
             test_metadata.token.pubkey(),
             test_master_edition.pubkey,
@@ -264,8 +264,8 @@ mod freeze_delegated {
         );
 
         // owner attempt to thaw account
-        let thaw_ix = ywpl_token_metadata::instruction::thaw_delegated_account(
-            ywpl_token_metadata::id(),
+        let thaw_ix = mpl_token_metadata::instruction::thaw_delegated_account(
+            mpl_token_metadata::id(),
             context.payer.pubkey(),
             test_metadata.token.pubkey(),
             test_master_edition.pubkey,

@@ -1,10 +1,10 @@
 #![cfg(feature = "test-bpf")]
 mod utils;
 
-use ywpl_token_metadata::pda::find_collection_authority_account;
-use ywpl_token_metadata::state::Collection;
-use ywpl_token_metadata::state::{UseMethod, Uses};
-use ywpl_token_metadata::{
+use mpl_token_metadata::pda::find_collection_authority_account;
+use mpl_token_metadata::state::Collection;
+use mpl_token_metadata::state::{UseMethod, Uses};
+use mpl_token_metadata::{
     error::MetadataError,
     state::{Key, MAX_NAME_LENGTH, MAX_SYMBOL_LENGTH, MAX_URI_LENGTH},
     utils::puffed_out_string,
@@ -20,7 +20,7 @@ use solana_sdk::{
 use utils::*;
 mod verify_collection {
 
-    use ywpl_token_metadata::state::{COLLECTION_AUTHORITY_RECORD_SIZE, CollectionAuthorityRecord};
+    use mpl_token_metadata::state::{COLLECTION_AUTHORITY_RECORD_SIZE, CollectionAuthorityRecord};
     use solana_program::borsh::try_from_slice_unchecked;
     use solana_sdk::transaction::Transaction;
 
@@ -703,8 +703,8 @@ mod verify_collection {
             &test_collection.mint.pubkey(),
             &new_collection_authority.pubkey(),
         );
-        let ix = ywpl_token_metadata::instruction::approve_collection_authority(
-            ywpl_token_metadata::id(),
+        let ix = mpl_token_metadata::instruction::approve_collection_authority(
+            mpl_token_metadata::id(),
             record,
             new_collection_authority.pubkey(),
             context.payer.pubkey(),
@@ -803,8 +803,8 @@ mod verify_collection {
             &test_collection.mint.pubkey(),
             &new_collection_authority.pubkey(),
         );
-        let ix = ywpl_token_metadata::instruction::approve_collection_authority(
-            ywpl_token_metadata::id(),
+        let ix = mpl_token_metadata::instruction::approve_collection_authority(
+            mpl_token_metadata::id(),
             record,
             new_collection_authority.pubkey(),
             update_authority,
@@ -927,8 +927,8 @@ mod verify_collection {
             &test_collection.mint.pubkey(),
             &new_collection_authority.pubkey(),
         );
-        let ix = ywpl_token_metadata::instruction::approve_collection_authority(
-            ywpl_token_metadata::id(),
+        let ix = mpl_token_metadata::instruction::approve_collection_authority(
+            mpl_token_metadata::id(),
             record,
             new_collection_authority.pubkey(),
             context.payer.pubkey(),
@@ -949,8 +949,8 @@ mod verify_collection {
         let account_before = context.banks_client.get_account(record).await.unwrap().unwrap();
         assert_eq!(account_before.data.len(), COLLECTION_AUTHORITY_RECORD_SIZE);
 
-        let ixrevoke = ywpl_token_metadata::instruction::revoke_collection_authority(
-            ywpl_token_metadata::id(),
+        let ixrevoke = mpl_token_metadata::instruction::revoke_collection_authority(
+            mpl_token_metadata::id(),
             record,
             new_collection_authority.pubkey(),
             context.payer.pubkey(),

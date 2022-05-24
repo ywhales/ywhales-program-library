@@ -1,7 +1,7 @@
 #![cfg(feature = "test-bpf")]
 mod utils;
 
-use ywpl_token_metadata::{error::MetadataError, id, instruction, state::Key};
+use mpl_token_metadata::{error::MetadataError, id, instruction, state::Key};
 use num_traits::FromPrimitive;
 use solana_program_test::*;
 use solana_sdk::{
@@ -16,7 +16,7 @@ use utils::*;
 // via (cd ../../token-vault/program/ && cargo build-bpf)
 mod mint_new_edition_from_master_edition_via_token {
     use super::*;
-    use ywpl_token_metadata::state::Collection;
+    use mpl_token_metadata::state::Collection;
     #[tokio::test]
     async fn success() {
         let mut context = program_test().start_with_context().await;

@@ -1,7 +1,7 @@
 #![cfg(feature = "test-bpf")]
 mod utils;
 
-use ywpl_token_metadata::state::{UseMethod, Uses};
+use mpl_token_metadata::state::{UseMethod, Uses};
 use num_traits::FromPrimitive;
 use solana_program_test::*;
 use solana_sdk::{
@@ -12,7 +12,7 @@ use solana_sdk::{
 use utils::*;
 
 mod uses {
-    use ywpl_token_metadata::{
+    use mpl_token_metadata::{
         error::MetadataError,
         pda::{find_program_as_burner_account, find_use_authority_account},
         state::{Key, UseAuthorityRecord},
@@ -51,8 +51,8 @@ mod uses {
             .await
             .unwrap();
 
-        let ix = ywpl_token_metadata::instruction::utilize(
-            ywpl_token_metadata::id(),
+        let ix = mpl_token_metadata::instruction::utilize(
+            mpl_token_metadata::id(),
             test_metadata.pubkey.clone(),
             test_metadata.token.pubkey(),
             test_metadata.mint.pubkey(),
@@ -107,8 +107,8 @@ mod uses {
             .await
             .unwrap();
 
-        let ix = ywpl_token_metadata::instruction::utilize(
-            ywpl_token_metadata::id(),
+        let ix = mpl_token_metadata::instruction::utilize(
+            mpl_token_metadata::id(),
             test_metadata.pubkey.clone(),
             test_metadata.token.pubkey(),
             test_metadata.mint.pubkey(),
@@ -163,8 +163,8 @@ mod uses {
             .await
             .unwrap();
 
-        let ix = ywpl_token_metadata::instruction::utilize(
-            ywpl_token_metadata::id(),
+        let ix = mpl_token_metadata::instruction::utilize(
+            mpl_token_metadata::id(),
             test_metadata.pubkey.clone(),
             test_metadata.token.pubkey(),
             test_metadata.mint.pubkey(),
@@ -224,8 +224,8 @@ mod uses {
             find_use_authority_account(&test_metadata.mint.pubkey(), &use_authority.pubkey());
         let (burner, _) = find_program_as_burner_account();
 
-        let add_use_authority = ywpl_token_metadata::instruction::approve_use_authority(
-            ywpl_token_metadata::id(),
+        let add_use_authority = mpl_token_metadata::instruction::approve_use_authority(
+            mpl_token_metadata::id(),
             record,
             use_authority.pubkey(),
             context.payer.pubkey(),
@@ -250,8 +250,8 @@ mod uses {
             .await
             .unwrap();
 
-        let utilize_with_use_authority = ywpl_token_metadata::instruction::utilize(
-            ywpl_token_metadata::id(),
+        let utilize_with_use_authority = mpl_token_metadata::instruction::utilize(
+            mpl_token_metadata::id(),
             test_metadata.pubkey.clone(),
             test_metadata.token.pubkey(),
             test_metadata.mint.pubkey(),
@@ -310,8 +310,8 @@ mod uses {
             find_use_authority_account(&test_metadata.mint.pubkey(), &use_authority.pubkey());
         let (burner, _) = find_program_as_burner_account();
 
-        let add_use_authority = ywpl_token_metadata::instruction::approve_use_authority(
-            ywpl_token_metadata::id(),
+        let add_use_authority = mpl_token_metadata::instruction::approve_use_authority(
+            mpl_token_metadata::id(),
             record,
             use_authority.pubkey(),
             context.payer.pubkey(),
@@ -336,8 +336,8 @@ mod uses {
             .await
             .unwrap();
 
-        let utilize_with_use_authority = ywpl_token_metadata::instruction::utilize(
-            ywpl_token_metadata::id(),
+        let utilize_with_use_authority = mpl_token_metadata::instruction::utilize(
+            mpl_token_metadata::id(),
             test_metadata.pubkey.clone(),
             test_metadata.token.pubkey(),
             test_metadata.mint.pubkey(),
@@ -361,8 +361,8 @@ mod uses {
             .await
             .unwrap();
 
-        let revoke_use_authority = ywpl_token_metadata::instruction::revoke_use_authority(
-            ywpl_token_metadata::id(),
+        let revoke_use_authority = mpl_token_metadata::instruction::revoke_use_authority(
+            mpl_token_metadata::id(),
             record,
             use_authority.pubkey(),
             context.payer.pubkey(),
@@ -385,8 +385,8 @@ mod uses {
             .unwrap();
 
         context.warp_to_slot(100).unwrap();
-        let utilize_with_use_authority_fail = ywpl_token_metadata::instruction::utilize(
-            ywpl_token_metadata::id(),
+        let utilize_with_use_authority_fail = mpl_token_metadata::instruction::utilize(
+            mpl_token_metadata::id(),
             test_metadata.pubkey.clone(),
             test_metadata.token.pubkey(),
             test_metadata.mint.pubkey(),
@@ -448,8 +448,8 @@ mod uses {
         let (record, _) =
             find_use_authority_account(&test_meta.mint.pubkey(), &use_authority.pubkey());
         let (burner, _) = find_program_as_burner_account();
-        let approveix = ywpl_token_metadata::instruction::approve_use_authority(
-            ywpl_token_metadata::id(),
+        let approveix = mpl_token_metadata::instruction::approve_use_authority(
+            mpl_token_metadata::id(),
             record,
             use_authority.pubkey(),
             context.payer.pubkey(),
@@ -476,8 +476,8 @@ mod uses {
         assert_eq!(record_acct.key, Key::UseAuthorityRecord);
         assert_eq!(record_acct.allowed_uses, 1);
 
-        let utilize_ix = ywpl_token_metadata::instruction::utilize(
-            ywpl_token_metadata::id(),
+        let utilize_ix = mpl_token_metadata::instruction::utilize(
+            mpl_token_metadata::id(),
             test_meta.pubkey,
             test_meta.token.pubkey(),
             test_meta.mint.pubkey(),
@@ -534,8 +534,8 @@ mod uses {
             .await
             .unwrap();
 
-        let utilize_ix = ywpl_token_metadata::instruction::utilize(
-            ywpl_token_metadata::id(),
+        let utilize_ix = mpl_token_metadata::instruction::utilize(
+            mpl_token_metadata::id(),
             test_meta.pubkey,
             test_meta.token.pubkey(),
             test_meta.mint.pubkey(),

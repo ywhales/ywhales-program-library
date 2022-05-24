@@ -1,9 +1,9 @@
 #![cfg(feature = "test-bpf")]
 mod utils;
 
-use ywpl_token_metadata::state::{UseAuthorityRecord, UseMethod, Uses};
+use mpl_token_metadata::state::{UseAuthorityRecord, UseMethod, Uses};
 
-use ywpl_token_metadata::pda::find_use_authority_account;
+use mpl_token_metadata::pda::find_use_authority_account;
 use solana_program_test::*;
 use solana_sdk::{
     signature::{Keypair, Signer},
@@ -11,7 +11,7 @@ use solana_sdk::{
 };
 use utils::*;
 mod revoke_use_authority {
-    use ywpl_token_metadata::pda::find_program_as_burner_account;
+    use mpl_token_metadata::pda::find_program_as_burner_account;
     use solana_program::{borsh::try_from_slice_unchecked};
     
 
@@ -46,8 +46,8 @@ mod revoke_use_authority {
             find_use_authority_account(&test_meta.mint.pubkey(), &use_authority.pubkey());
         let (burner, _) = find_program_as_burner_account();
 
-        let approve_ix = ywpl_token_metadata::instruction::approve_use_authority(
-            ywpl_token_metadata::id(),
+        let approve_ix = mpl_token_metadata::instruction::approve_use_authority(
+            mpl_token_metadata::id(),
             record,
             use_authority.pubkey(),
             context.payer.pubkey(),
@@ -77,8 +77,8 @@ mod revoke_use_authority {
 
         assert_eq!(record_acct.allowed_uses, 1);
 
-        let revoke_ix = ywpl_token_metadata::instruction::revoke_use_authority(
-            ywpl_token_metadata::id(),
+        let revoke_ix = mpl_token_metadata::instruction::revoke_use_authority(
+            mpl_token_metadata::id(),
             record,
             use_authority.pubkey(),
             context.payer.pubkey(),
