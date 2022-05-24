@@ -3207,7 +3207,7 @@ dependencies = [
  "thiserror",
  "ywpl-auction",
  "ywpl-token-metadata",
- "ywpl-token-vault",
+ "ywpl-token-vault 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -3223,12 +3223,27 @@ dependencies = [
  "spl-associated-token-account",
  "spl-token",
  "thiserror",
- "ywpl-token-vault",
+ "ywpl-token-vault 0.1.1",
 ]
 
 [[package]]
 name = "ywpl-token-vault"
 version = "0.1.1"
+dependencies = [
+ "borsh",
+ "num-derive",
+ "num-traits",
+ "shank",
+ "solana-program",
+ "spl-token",
+ "thiserror",
+]
+
+[[package]]
+name = "ywpl-token-vault"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "789ef2b3c510ea1ced2bc4df8ff0dc666ea06aa6fdbc6175a4c6e192ae430af1"
 dependencies = [
  "borsh",
  "num-derive",
